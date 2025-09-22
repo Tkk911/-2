@@ -267,7 +267,7 @@ document.getElementById('startBtn').onclick = ()=>{
 };
 
 function sendLineMessagingAPI(name, score, total){
-  fetch("https://script.google.com/macros/s/AKfycbyDHrQrQCXlm8cag4Q0HfOPWOS1-4ED3j8CYPo5AEfYatTqfJVmijUiqiiAJawKVbKl/exec", { // TODO: ใส่ URL ของ GAS
+  fetch("https://script.google.com/macros/s/AKfycbzwxJVrMthp-t6eKHu9_bTAKN6pYaVsUcI_jWaWf0Nf3S-0NkyNQHoD97bI7D6FMRrW/exec", { // TODO: ใส่ URL ของ GAS
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, score, total })
@@ -277,4 +277,5 @@ function sendLineMessagingAPI(name, score, total){
 </script>
 </body>
 </html>
+
 
