@@ -249,7 +249,7 @@ function finishExam(){
   showSummary();
 
   const name = document.getElementById('candidate').textContent.replace("ผู้สอบ: ","");
-sendLineMessagingAPI(name, score, questions.length);
+  sendLineMessagingAPI(name, score, questions.length);
 
   alert('หมดเวลาหรือส่งข้อสอบแล้ว ระบบเข้าสู่โหมดรีวิว');
 }
@@ -267,15 +267,21 @@ document.getElementById('startBtn').onclick = ()=>{
 };
 
 function sendLineMessagingAPI(name, score, total){
-  fetch("https://script.google.com/macros/s/AKfycbzwxJVrMthp-t6eKHu9_bTAKN6pYaVsUcI_jWaWf0Nf3S-0NkyNQHoD97bI7D6FMRrW/exec", { // TODO: ใส่ URL ของ GAS
+  const url = "https://script.google.com/macros/s/AKfycbyv_ksvKOLnr6xdEAUk5LOfGF3ealGhawjCX250RUBl7osP7uhEUocyuCUPJTid57gR/exec"; // TODO: ใส่ URL ของ GAS จริงๆ
+  const params = new URLSearchParams();
+  params.append('name', name);
+  params.append('score', score);
+  params.append('total', total);
+
+  fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, score, total })
-  });
+    body: params // Content-Type: application/x-www-form-urlencoded
+  })
+  .then(r => r.text())
+  .then(t => console.log("GAS response:", t))
+  .catch(err => console.error("GAS error:", err));
 }
 
 </script>
 </body>
 </html>
-
-
