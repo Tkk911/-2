@@ -249,7 +249,7 @@ function finishExam(){
   showSummary();
 
   const name = document.getElementById('candidate').textContent.replace("ผู้สอบ: ","");
-  sendLineMessagingAPI(name, score, questions.length);
+sendLineMessagingAPI(name, score, questions.length);
 
   alert('หมดเวลาหรือส่งข้อสอบแล้ว ระบบเข้าสู่โหมดรีวิว');
 }
@@ -267,7 +267,7 @@ document.getElementById('startBtn').onclick = ()=>{
 };
 
 function sendLineMessagingAPI(name, score, total){
-  fetch("https://script.google.com/macros/s/AKfycbzKZyMA5LKfXc1pkyZiVGHDemK8zH70ypUh0DDdXMkvprqewZyNfaq00JJCI_1TZHBu/exec", { // TODO: ใส่ URL ของ GAS
+  fetch("https://script.google.com/macros/s/AKfycbyDHrQrQCXlm8cag4Q0HfOPWOS1-4ED3j8CYPo5AEfYatTqfJVmijUiqiiAJawKVbKl/exec", { // TODO: ใส่ URL ของ GAS
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, score, total })
@@ -277,3 +277,4 @@ function sendLineMessagingAPI(name, score, total){
 </script>
 </body>
 </html>
+
