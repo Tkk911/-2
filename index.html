@@ -281,8 +281,11 @@ function sendLineMessagingAPI(name, score, total){
   .then(t => console.log("GAS response:", t))
   .catch(err => console.error("GAS error:", err));
 }
-
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
 </script>
 </body>
 </html>
+
 
